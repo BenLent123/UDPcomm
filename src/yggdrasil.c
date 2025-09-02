@@ -16,9 +16,10 @@ int stop_yggdrasil(){
 }
 
 // Check status
-int check_status_yggdrasil(){
-   if(system("systemctl status yggdrasil") == 0) return 0;
-   return -1;
+int check_status_yggdrasil() {
+    if (system("systemctl is-active --quiet yggdrasil") == 0)
+        return 0; // Active
+    return -1;    // Not active (dead/inactive)
 }
 
 int get_self_ipv6(char *buf, size_t bufsize) {

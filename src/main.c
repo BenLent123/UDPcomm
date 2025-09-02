@@ -44,25 +44,15 @@ int main(){
     printf("your ID: %d+%s\n", port, ipv6); // sanity print
     
     //enter peer IPV6
-    printf("Enter peer IPv6 address: ");
     peeraddr = malloc(sizeof(struct sockaddr_in6));
     if (peeraddr == NULL) {
         perror("malloc");
         exit(EXIT_FAILURE);
     }
-    while (!valid_ipv6) {
-        if (scanf("%45s", peer_ipv6) != 1) {
-            printf("Invalid input. Try again.\n");
-            while (getchar() != '\n');
-            continue;
-        }
-        if (inet_pton(AF_INET6, peer_ipv6, &peeraddr->sin6_addr) == 1) {
-            valid_ipv6 = 1;
-        } else {
-            printf("Invalid IPv6 address. Try again: ");
-        }
-    }
-    
+    printf("Enter peer IPv6 address: ");
+    scanf("%45s", peer_ipv6);
+    inet_pton(AF_INET6, peer_ipv6, &peeraddr->sin6_addr);
+
     //enter peer port
     do {
         printf("Enter peer UDP port (3000-9999): ");

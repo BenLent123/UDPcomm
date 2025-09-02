@@ -46,3 +46,5 @@ int get_self_ipv6(char *buf, size_t bufsize) {
     pclose(fp);
     return -1; // IPv6 address not found
 }
+
+

@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "udp.h": "c"
+        "udp.h": "c",
+        "ctype.h": "c",
+        "stdio.h": "c"
     }
 }

@@ -40,6 +40,8 @@ int main(){
             port = 0;
         }
     } while (port < 3000 || port > 9999);
+ 
+ // WORKS TILL HERE
 
     printf("your ID: %d+%s\n", port, ipv6); // sanity print
     

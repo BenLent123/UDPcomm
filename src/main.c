@@ -11,8 +11,8 @@ int main(){
     int port;
     int sockfd;
     struct sockaddr_in6 *peeraddr;
+    struct in6_addr addr6;
     char peer_ipv6[INET6_ADDRSTRLEN];
-    int valid_ipv6 = 0;
     int peer_port;
     //check if ipv6 mesh "yggdrasil" is on
     if(check_status_yggdrasil()!=0){
@@ -26,7 +26,7 @@ int main(){
 
     // get own yggdrasil IPV6 
     if (get_self_ipv6(ipv6, sizeof(ipv6)) == 0) {
-        printf("yggdrasil -- self IPv6 address: %s\n", ipv6);
+        printf("your IPV6: %s\n", ipv6);
     } else {
         printf("yggdrasil -- failed to get self IPv6 address\n");
     }
@@ -51,9 +51,18 @@ int main(){
         perror("malloc");
         exit(EXIT_FAILURE);
     }
-    printf("Enter peer IPv6 address: ");
-    scanf("%45s", peer_ipv6);
-    inet_pton(AF_INET6, peer_ipv6, &peeraddr->sin6_addr);
+    do {
+        printf("Enter peer IPv6 address: ");
+        if (scanf("%45s", peer_ipv6) != 1) {
+            while (getchar() != '\n');
+            continue;
+        }
+        if (inet_pton(AF_INET6, peer_ipv6, &peeraddr->sin6_addr) == 1) {
+            break;
+        } else {
+            printf("Invalid IPv6 address. Try again.\n");
+        }
+    } while (1);
 
     //enter peer port
     do {

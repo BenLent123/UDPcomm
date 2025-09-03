@@ -5,6 +5,17 @@
 extern "C" {
 #endif
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <arpa/inet.h>
+
+#define SUCCESS 0
+#define INVALID_ADDR6 -1
+#define ERROR -2
+#define INACTIVE -3
+#define ACTIVE 1
+
 // Starts the Yggdrasil service
 int start_yggdrasil(void);
 

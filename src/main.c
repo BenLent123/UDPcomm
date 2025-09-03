@@ -11,11 +11,11 @@ int main(){
     int port;
     int sockfd;
     struct sockaddr_in6 *peeraddr;
-    struct in6_addr addr6;
+    //struct in6_addr addr6;
     char peer_ipv6[INET6_ADDRSTRLEN];
     int peer_port;
     //check if ipv6 mesh "yggdrasil" is on
-    if(check_status_yggdrasil()!=0){
+    if(check_status_yggdrasil()!=ACTIVE){
         printf("yggdrasil is off\n");
         start_yggdrasil();
     }else{
@@ -26,9 +26,9 @@ int main(){
 
     // get own yggdrasil IPV6 
     if (get_self_ipv6(ipv6, sizeof(ipv6)) == 0) {
-        printf("your IPV6: %s\n", ipv6);
     } else {
         printf("yggdrasil -- failed to get self IPv6 address\n");
+        return -1;
     }
 
     //decide on a port

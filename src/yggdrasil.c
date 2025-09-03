@@ -1,33 +1,36 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <arpa/inet.h>
 #include "yggdrasil.h"
 
 // Start service
 int start_yggdrasil(){
-   if(system("sudo systemctl start yggdrasil") == 0) return 0;
-   return -1;
+   if(system("sudo systemctl start yggdrasil") == 0) {
+       return SUCCESS;
+   }
+   perror("Failed to start yggdrasil\n");
+   return ERROR;
 }
 
 // Stop service
 int stop_yggdrasil(){
-   if(system("sudo systemctl stop yggdrasil") == 0) return 0;
-   return -1;
+   if(system("sudo systemctl stop yggdrasil") == 0) {
+       return SUCCESS;
+   }
+   perror("Failed to stop yggdrasil\n");
+   return ERROR;
 }
 
 // Check status
 int check_status_yggdrasil() {
-    if (system("systemctl is-active --quiet yggdrasil") == 0)
-        return 0; // Active
-    return -1;    // Not active (dead/inactive)
+    if (system("systemctl is-active --quiet yggdrasil") == 0){
+        return ACTIVE; // Active
+    }
+    return INACTIVE;    // Not active (dead/inactive)
 }
 
 int get_self_ipv6(char *ipv6, size_t bufsize) {
    FILE *fp = popen("sudo yggdrasil -address -useconffile /etc/yggdrasil/yggdrasil.conf", "r");
     if (fp == NULL) {
         perror("popen failed");
-        return 1;
+        return ERROR;
     }
 
     if (fgets(ipv6, bufsize, fp) != NULL) {
@@ -41,10 +44,11 @@ int get_self_ipv6(char *ipv6, size_t bufsize) {
             printf("Valid IPv6 address: %s\n", ipv6);
         } else {
             printf("Invalid IPv6 address: %s\n", ipv6);
+            return INVALID_ADDR6;
         }
     }
     pclose(fp);
-    return 0;
+    return SUCCESS;
 }
 
 

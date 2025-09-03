@@ -11,8 +11,7 @@
 #include <sys/select.h>
 #include <time.h>
 
-#define SUCCESS 0
-#define SENDTO_FAILED -1
+#include "defines.h"
 
 // Performs UDP hole punching and starts chat loop
 int udp_holepunch_and_chat(int sockfd, struct sockaddr_in6 *peeraddr);

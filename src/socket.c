@@ -21,7 +21,7 @@ int create_and_bind_socket(int family, int type, const char *ip, int port) {
             if (inet_pton(AF_INET, ip, &addr.sin_addr) != 1) {
                 printf("Invalid IPv4 address.\n");
                 close(sockfd);
-                return INVALID_ADDR4;
+                return INVALID_IPV4;
             }
         }
         if (bind(sockfd, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
@@ -48,7 +48,7 @@ int create_and_bind_socket(int family, int type, const char *ip, int port) {
             if (inet_pton(AF_INET6, ip, &addr6.sin6_addr) != 1) {
                 printf("Invalid IPv6 address.\n");
                 close(sockfd);
-                return INVALID_ADDR6;
+                return INVALID_IPV6;
             }
         }
         if (bind(sockfd, (struct sockaddr*)&addr6, sizeof(addr6)) < 0) {
@@ -58,7 +58,7 @@ int create_and_bind_socket(int family, int type, const char *ip, int port) {
         }
     } else {
         printf("Unsupported address family.\n");
-        return ERROR;
+        return DEFAULT_ERROR;
     }
     return sockfd;
 }

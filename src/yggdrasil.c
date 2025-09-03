@@ -6,7 +6,7 @@ int start_yggdrasil(){
        return SUCCESS;
    }
    perror("Failed to start yggdrasil\n");
-   return ERROR;
+   return DEFAULT_ERROR;
 }
 
 // Stop service
@@ -15,7 +15,7 @@ int stop_yggdrasil(){
        return SUCCESS;
    }
    perror("Failed to stop yggdrasil\n");
-   return ERROR;
+   return DEFAULT_ERROR;
 }
 
 // Check status
@@ -30,7 +30,7 @@ int get_self_ipv6(char *ipv6, size_t bufsize) {
    FILE *fp = popen("sudo yggdrasil -address -useconffile /etc/yggdrasil/yggdrasil.conf", "r");
     if (fp == NULL) {
         perror("popen failed");
-        return ERROR;
+        return DEFAULT_ERROR;
     }
 
     if (fgets(ipv6, bufsize, fp) != NULL) {
@@ -44,7 +44,7 @@ int get_self_ipv6(char *ipv6, size_t bufsize) {
             printf("Valid IPv6 address: %s\n", ipv6);
         } else {
             printf("Invalid IPv6 address: %s\n", ipv6);
-            return INVALID_ADDR6;
+            return INVALID_IPV6;
         }
     }
     pclose(fp);

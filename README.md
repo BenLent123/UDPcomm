@@ -19,7 +19,11 @@ Run the executable:
 ## Features
 - IPv6 via Yggdrasil mesh integration
 - UDP holepunching
+- encryption via Yggdrasil mesh network
 
+# IMPORTANT
+- this is ipv6 and end2end encrypted HOWEVER not private
+- this is a work in progress so this might have issues :(
 
 ## License
 See [LICENSE.md](LICENSE.md) for MIT License details.

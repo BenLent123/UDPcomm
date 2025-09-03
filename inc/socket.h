@@ -9,6 +9,12 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
+#define SUCCESS 0
+#define ERROR -1
+#define INVALID_ADDR6 -2
+#define INVALID_ADDR4 -3
+#define INVALID_SOCKFD -4
+#define BINDING_ERROR -5
 // Creates and binds a socket
 // family: AF_INET or AF_INET6
 // type: SOCK_STREAM (TCP) or SOCK_DGRAM (UDP)

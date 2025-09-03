@@ -78,7 +78,7 @@ int main(){
 
     sockfd = create_and_bind_socket(socket_family,socket_type,ipv6,port); // creates a UDP socket with IP and Port
 
-    udp_holepunch_and_chat(sockfd, peeraddr);
+    udp_holepunch_and_chat(sockfd, peeraddr); // starts the chat
     
     return 0;
     

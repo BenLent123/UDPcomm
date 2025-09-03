@@ -7,11 +7,11 @@ int udp_holepunch_and_chat(int sockfd, struct sockaddr_in6 *peeraddr) {
 
     if(sendto(sockfd, punch_msg, strlen(punch_msg), 0, (struct sockaddr*)peeraddr, sizeof(*peeraddr)) < 0) {
         perror("sendto");
-        return -1;
+        return SENDTO_FAILED;
     }
 
     chat_loop(sockfd, peeraddr);
-    
-    return 0;
+
+    return SUCCESS;
 }
 

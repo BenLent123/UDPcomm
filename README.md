@@ -6,6 +6,8 @@ Real time peer-to-peer UDP CLI chat (RTC-p2p-chat) (long ahhh word) via IPv6 and
 ## Requirments
 This program uses yggdrasil for the IPV6 mesh network therefore it is required to have this installed and functional!!
 
+CURRENTLY ONLY FOR LINUX!!!!!!!!!!!!!!!!!!!
+
 **Debian/Ubuntu:**
 ```bash
 sudo apt update

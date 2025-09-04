@@ -9,7 +9,7 @@ int create_qr(char *ipv6, int port){
         return SUCCESS;
     }else{
         perror("Failed to generate QR code\n");
-        return DEFAULT_ERROR;
+        return QR_ERROR;
     }
     
     return SUCCESS;

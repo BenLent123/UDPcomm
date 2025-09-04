@@ -13,7 +13,14 @@ int main(){
     struct sockaddr_in6 *peeraddr;
     char peer_ipv6[INET6_ADDRSTRLEN];
     int peer_port;
-
+    printf("*****************************************\n");
+    printf("\n");
+    printf("----YGGDCOMM----\n");
+    printf("\n");
+    printf("!exit at any input prompt by typing 'exit'!\n");
+    printf("\n");
+    printf("*****************************************\n");
+    printf("\n");
     //check if ipv6 mesh "yggdrasil" is on
     if(check_status_yggdrasil()==INACTIVE){
         printf("yggdrasil is off\n");
@@ -36,13 +43,17 @@ int main(){
     }
 
     //decide on a port
+    char port_input[16]; // buffer to handle user input
     do {
-        printf("Enter UDP port (3000-9999): ");
-        if (scanf("%d", &port) != 1) {
-            // Invalid input, clear stdin
+        printf("Enter UDP port (3000-9999) or 'exit': ");
+        if (scanf("%15s", port_input) != 1) {
             while (getchar() != '\n');
-            port = 0;
+            continue;
         }
+        if (strcmp(port_input, "exit") == 0) {
+            return USER_EXIT; // Exit program
+        }
+        port = atoi(port_input);
     } while (port < 3000 || port > 9999);
  
 
@@ -53,11 +64,11 @@ int main(){
     //enter peer IPV6
     peeraddr = malloc(sizeof(struct sockaddr_in6));
     if (peeraddr == NULL) {
-        perror("malloc");
+        perror("peeraddr malloc failed");
         exit(EXIT_FAILURE);
     }
     do {
-        printf("Enter peer IPv6 address: ");
+        printf("Enter peer IPv6 address or 'exit': ");
         if (scanf("%45s", peer_ipv6) != 1) {
             while (getchar() != '\n');
             continue;
@@ -66,7 +77,7 @@ int main(){
             break;
         } else if (strcmp(peer_ipv6, "exit") == 0) {
             free(peeraddr);
-            return 0; // Exit program
+            return USER_EXIT; // Exit program
         } else {
             printf("Invalid IPv6 address. Try again.\n");
         }
@@ -74,11 +85,16 @@ int main(){
 
     //enter peer port
     do {
-        printf("Enter peer UDP port (3000-9999): ");
-        if (scanf("%d", &peer_port) != 1) {
+        printf("Enter peer UDP port (3000-9999) or 'exit': ");
+        if (scanf("%15s", port_input) != 1) {
             while (getchar() != '\n');
-            peer_port = 0;
+            continue;
         }
+        if (strcmp(port_input, "exit") == 0) {
+            free(peeraddr);
+            return USER_EXIT; // Exit program
+        }
+        peer_port = atoi(port_input);
     } while (peer_port < 3000 || peer_port > 9999);
 
     peeraddr->sin6_family = socket_family;

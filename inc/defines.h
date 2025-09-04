@@ -13,6 +13,9 @@
 #define SYSTEM_ERROR -8
 #define YGGDRASIL_INIT_ERROR -9
 #define YGGDRASIL_IP_ERROR -10
+#define RECVFROM_FAILED -11
+#define QR_ERROR -12
+#define USER_EXIT -13
 
 
 #endif

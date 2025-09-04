@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -O2 -Iinc
+CFLAGS=-Wall -O2 -Iinc -Ilibqrencode
 
 SRC=src/CLI.c src/socket.c src/UDP.c src/chat.c src/yggdrasil.c src/qr.c
 OBJ=$(SRC:.c=.o)

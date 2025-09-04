@@ -7,7 +7,6 @@
 int main(){
     char ipv6[INET6_ADDRSTRLEN];
     int socket_family = AF_INET6; // AF_INET or AF_INET6
-    int socket_type = SOCK_DGRAM;  // SOCK_STREAM or SOCK_DGRAM
     int port;
     int sockfd;
     struct sockaddr_in6 *peeraddr;
@@ -76,7 +75,7 @@ int main(){
     peeraddr->sin6_family = socket_family;
     peeraddr->sin6_port = htons(peer_port);
 
-    sockfd = create_and_bind_socket(socket_family,socket_type,ipv6,port); // creates a UDP socket with IP and Port
+    sockfd = create_and_bind_socket(ipv6,port); // creates a UDP socket with IP and Port
 
     udp_holepunch_and_chat(sockfd, peeraddr); // starts the chat
     

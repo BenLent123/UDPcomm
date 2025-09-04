@@ -8,6 +8,8 @@ This program uses yggdrasil for the IPV6 mesh network therefore it is required t
 
 CURRENTLY ONLY FOR LINUX!!!!!!!!!!!!!!!!!!!
 
+a public node in your region has to be added to yggdrasil.conf
+
 **Debian/Ubuntu:**
 ```bash
 sudo apt update

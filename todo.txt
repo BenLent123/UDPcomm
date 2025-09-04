@@ -6,3 +6,8 @@ add privacy ?
 
 GUI :3 
 
+make it callable via ./yiggcomm peerID
+
+make peerID savable
+
+Json yggdrasilconf reader

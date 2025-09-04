@@ -6,10 +6,10 @@
 #define DEFAULT_ERROR -1
 #define SENDTO_FAILED -2
 #define INVALID_IPV6 -3
-#define INVALID_IPV4 -4
-#define INVALID_SOCKFD -5
-#define BINDING_ERROR -6
-#define INACTIVE -7
+#define INVALID_SOCKFD -4
+#define BINDING_ERROR -5
+#define INACTIVE -6
+#define EMPTY_IPV6 -7
 
 
 #endif

@@ -10,6 +10,9 @@
 #define BINDING_ERROR -5
 #define INACTIVE -6
 #define EMPTY_IPV6 -7
+#define SYSTEM_ERROR -8
+#define YGGDRASIL_INIT_ERROR -9
+#define YGGDRASIL_IP_ERROR -10
 
 
 #endif

@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -O2 -Iinc
 
-SRC=src/CLI.c src/socket.c src/UDP.c src/chat.c src/yggdrasil.c
+SRC=src/CLI.c src/socket.c src/UDP.c src/chat.c src/yggdrasil.c src/qr.c
 OBJ=$(SRC:.c=.o)
 
 comm: $(OBJ)

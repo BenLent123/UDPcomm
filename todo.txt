@@ -1,18 +1,8 @@
-IPV6 HANDLEING IS NOT WORKING
+maybe make shell that executes code given IPV6 for easer access
 
+double encryption
 
+add privacy ?
 
-make code that calles getself and extracts correct info
-
-
-Key Exchange: Securely exchange encryption keys between peers. Never send keys in plaintext over the network. Use a secure channel or a key exchange protocol (e.g., Diffie-Hellman, libsodium's key exchange functions).
-
-Authenticated Encryption: Use authenticated encryption (e.g., libsodium's crypto_secretbox_easy or crypto_box_easy) to ensure both confidentiality and integrity. This prevents tampering and eavesdropping.
-
-Nonce Management: Always use a unique nonce for each message. Never reuse nonces with the same key.
-
-Replay Protection: Optionally, implement replay protection (e.g., sequence numbers or timestamps) to prevent attackers from resending old messages.
-
-Key Rotation: Periodically rotate keys if the session is long-lived.
-
+GUI :3 
 

@@ -18,13 +18,13 @@ void print_title(void){
     printf("\n");
     printf("----YGGDCOMM----\n");
     printf("\n");
-    printf("!exit at any input prompt by typing 'exit'!\n");
     printf("\n");
     printf("*****************************************\n");
     printf("\n");
 }
 
 int main(int argc, char *argv[]) {
+    print_title();
     char ipv6[INET6_ADDRSTRLEN];
     int socket_family = AF_INET6; // AF_INET6 for IPV6
     int my_port;

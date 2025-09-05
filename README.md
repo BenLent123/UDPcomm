@@ -40,7 +40,8 @@ make
 ```
 Run the executable:
 ```bash
-./comm
+./yggcomm my_port peerIPV6 peerPort
+./yggcomm -h (or) -help
 ```
 
 ## Features

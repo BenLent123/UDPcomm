@@ -80,6 +80,9 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         printf("--all as expected --\n");
+        
+        create_qr(ipv6, my_port); // generates a QR code image file "myid.png" with the ID
+        printf("QR code saved to myid.png\n");
 
         peeraddr->sin6_family = socket_family;
         peeraddr->sin6_port = htons(peer_port);

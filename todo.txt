@@ -1,12 +1,9 @@
-maybe make shell that executes code given IPV6 for easer access
 
 double encryption
 
 add privacy ?
 
 GUI :3 
-
-make it callable via ./yiggcomm peerID
 
 make peerID savable
 

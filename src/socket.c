@@ -22,11 +22,11 @@ int create_and_bind_socket(const char *ip, int port) {
             return INVALID_IPV6;
         }
         }
-        if (bind(sockfd, (struct sockaddr*)&addr6, sizeof(addr6)) < 0) {
-            perror("bind");
-            close(sockfd);
-            return BINDING_ERROR;
-        }
+    if (bind(sockfd, (struct sockaddr*)&addr6, sizeof(addr6)) < 0) {
+        perror("bind");
+        close(sockfd);
+        return BINDING_ERROR;
+    }
  
 
     return sockfd;

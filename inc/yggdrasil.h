@@ -21,6 +21,9 @@ int stop_yggdrasil(void);
 // Checks the status of the Yggdrasil service
 int check_status_yggdrasil(void);
 
+// does overall check
+int yggdrasil_sys_check(void);
+
 // Gets the Yggdrasil IPv6 address of the current node
 int get_self_ipv6(char *buf, size_t bufsize);
 

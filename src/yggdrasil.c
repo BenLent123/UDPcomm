@@ -29,6 +29,23 @@ int check_status_yggdrasil() {
     return INACTIVE; // Not active
 }
 
+
+int yggdrasil_sys_check(void){
+    if(check_status_yggdrasil()==INACTIVE){
+        printf("yggdrasil is off\n");
+        start_yggdrasil();
+        printf("starting yggdrasil\n");
+    }else if(check_status_yggdrasil()==ACTIVE){
+        printf("yggdrasil is already running\n");
+    }else{
+        printf("yggdrasil status check failed\n");
+        return YGGDRASIL_INIT_ERROR;
+    }
+
+    printf("yggdrasil -- status check -- passed\n");
+    return SUCCESS;
+}
+
 int get_self_ipv6(char *ipv6, size_t bufsize) {
    FILE *fp = popen("sudo yggdrasil -address -useconffile /etc/yggdrasil/yggdrasil.conf", "r");
     if (fp == NULL) {
